@@ -84,9 +84,11 @@ startSim();
 setInterval(function () {
   var i = 0,
       n = nodes.length,
-      I = 0;
+      I = 0,
+      S = 0;
   for(var j = 0; j<n; j++){
     I += nodes[j].infected & !nodes[j].immune;
+    S += !nodes[j].infected & !nodes[j].immune;
   }
   for(i = 0; i<n; i++){
     if(Math.random()< (eps*I) & !nodes[i].immune){
@@ -95,7 +97,7 @@ setInterval(function () {
   }
   svg.selectAll("circle").style("fill", function(d,i) { return nodes[i].infected ? 'red':'blue'; });
 
-  if(I == 0 | I == n){
+  if(I == 0 || S == 0){
 
     button.style("visibility", "visible");
 
