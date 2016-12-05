@@ -12,7 +12,7 @@ I recently helped run a workshop on an introduction to epidemic modelling and wa
 to build a simple spatial epidemic model to allow people to explore concepts
 such as vaccination and the $$R_0$$ or basic reproduction number. Having built other
 models in `javascript` using `d3.js` this felt like a natural choice for me. If
-you just want to skip to the end, the finished product can be found [here](/epidemic-model).
+you just want to skip to the end, the finished product can be found [here](https://sempwn.github.io/epidemic-model/).
 
 [d3](d3js.org) is a fantastic library for doing data visualization. According to their website:
 
@@ -280,4 +280,4 @@ $('#ex2').slider({
 
 ### Extension
 
-There's probably a few interesting features we can add. We can try adding a parameter that controls how much infection spreads locally compared to how it spreads globally (might need to adjust the $$R_0$$ in this case). We can add a way of setting up the model to include individuals with prior immunity and who are already infectious. Or how about a more complex epidemic with an exposed class, or maybe have individuals with varying infectiousness? Seems like it would be a good framework to explore lots of interesting math epi concepts. Play around with it and see what ideas you come up with. Once again, the end-result can be found [here](/epidemic-model).
+There's probably a few interesting features we can add. We can try adding a parameter that controls how much infection spreads locally compared to how it spreads globally (might need to adjust the $$R_0$$ in this case). We can add a way of setting up the model to include individuals with prior immunity and who are already infectious. Or how about a more complex epidemic with an exposed class, or maybe have individuals with varying infectiousness? Seems like it would be a good framework to explore lots of interesting math epi concepts. Play around with it and see what ideas you come up with. Once again, the end-result can be found [here](https://sempwn.github.io/epidemic-model/).
