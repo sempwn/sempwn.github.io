@@ -3,7 +3,9 @@ var w = d3.select('#title-section').node().getBoundingClientRect().width,
     eps = 0.0001;
 var nodes = [];
 var force,root,svg,button;
-
+var blue = d3.rgb(50,50,100),
+    red = d3.rgb(100,50,50),
+    green = d3.rgb(50,100,50);
 
 function startSim(){
   d3.select("svg").remove();

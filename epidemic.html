@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Epidemic model</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
+    <link href="css/bootstrap-slider.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/academicons.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+    <div class="row">
+        <h1 class="text-center"> Epidemic Model </h1>
+    </div>
+    <div class="row" id="lattice-epidemic-tool">
+      <div id="title-section" class="col-md-6">
+
+        <div id="epidemic"></div>
+
+      </div>
+      <div id="control-panel" class="col-md-4">
+        <div class="row">
+          <h3>Control panel</h3>
+          <form class="form">
+            <div class="form-group">
+              <label for="inputr0">Basic reproduction number</label>
+              <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="4" data-slider-step="0.1" data-slider-value="2"/>
+              <small id="emailHelp" class="form-text text-muted">Above one leads to epidemic.</small>
+            </div>
+            <div class="form-group">
+              <label for="inputs">Speed of simulation</label>
+              <input id="ex2" data-slider-id='ex1Slider' type="text" data-slider-min="0.01" data-slider-max="1" data-slider-step="0.01" data-slider-value="0.01"/>
+              <small id="emailHelp" class="form-text text-muted">.</small>
+            </div>
+            <div class="form-group">
+              <button id="pause" type="button" class="btn btn-default"><span class="glyphicon glyphicon-pause" aria-hidden="true"></span>Pause</button>
+              <button id="reset" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>Reset</button>
+            </div>
+          </form>
+        </div>
+        <div class = "row">
+          <div id="graphDiv">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  <!-- jQuery -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+
+  <!-- Plot.ly js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+
+  <!-- Bootstrap -->
+  <script src="js/bootstrap-slider.js"></script>
+
+  <!-- D3 js -->
+  <script src="js/d3.js"></script>
+  <script src="js/d3.layout.js"></script>
+  <script src="js/d3.geom.js"></script>
+  <script src="js/d3.grid.js"></script>
+  <script src="js/lattice_epidemic.js"></script>
+</body>
