@@ -72,7 +72,7 @@ var traceI = {
 var t = 0;
 var data = [traceS, traceI];
 ```
-As you can see the API is fairly straightforward. We'll fill in the `x` and `y` data variables later when the model starts. Now let'd make a function that resets this graph
+As you can see the API is fairly straightforward. We'll fill in the `x` and `y` data variables later when the model starts. Let's make a function that resets this graph
 
 ```javascript
 function resetGraph(){
@@ -187,9 +187,9 @@ indNeighbors = function(ind,N){
 ```
 
 Now we can get to the actual simulation part. We use an interval
-to update the model in discrete time. Also keep track of the number of infected
-and susceptible individuals. Infected and recover individuals according to their
-status and their neighbors statuses and then update the colours for everything.
+to update the model in discrete time. We also keep track of the number of infected
+and susceptible individuals. Infected and recovered individuals change randomly according to their
+status and their neighbors statuses. finally the colours indicating someone's status are updated.
 
 ```javascript
 
