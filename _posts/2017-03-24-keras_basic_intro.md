@@ -14,13 +14,13 @@ date: 2017-03-24
 If you've used [scikit-learn](http://scikit-learn.org/stable/) then you should be on familiar ground as the library was developed with a similar philosophy.
 
  * Can use either theano or tensorflow as a back-end. For the most part, you just need to set it up and then interact with it using keras. Ordering of dimensions can be different though.
- * Models can be instaniated using the `Sequential()` class.
+ * Models can be instantiated using the `Sequential()` class.
  * Neural networks are built up from bottom layer to top using the `add()` method.
- * Lots of recipes to follow and many [examples](https://github.com/fchollet/keras/tree/master/examples) for problems in NLP and image classification.
+ * Lots of recipes to follow and many [examples](https://github.com/fchollet/keras/tree/master/examples) for problems in natural language processing and image classification.
 
-The python notebook for this tutorial can be found at [https://github.com/sempwn/keras-intro](https://github.com/sempwn/keras-intro)
+Before we start you can download the python notebook for this tutorial at [https://github.com/sempwn/keras-intro](https://github.com/sempwn/keras-intro)
 
-Before starting we'll need to make sure tensorflow and keras are installed. Open a terminal and type the following commands:
+To begin we'll make sure tensorflow and keras are installed. Open a terminal and type the following commands:
 
 ```sh
 pip install --user tensorflow
@@ -35,16 +35,16 @@ sed -i 's/theano/tensorflow/g' $HOME/.keras/keras.json
 
 
 
-The keras library is very flexible, constantly being updated and being further integrated with tensorflow. Some example scripts for keras can be found
+The keras library is very flexible, constantly being updated and being further integrated with tensorflow.
 
-Another advantage is its intergration with [tensorboard](https://www.tensorflow.org/get_started/summaries_and_tensorboard): A visualisation tool for neural network learning and debugging. To start we need to install it. If you've installed tensorflow already then you should already have it (check with: `which tensorboard`). Otherwise, run the command:
+Another advantage is its intergration with [tensorboard](https://www.tensorflow.org/get_started/summaries_and_tensorboard): A visualisation tool for neural network learning and debugging. If you've installed tensorflow already then you should already have it (check with: `which tensorboard`). Otherwise, run the command:
 
 ```sh
 pip install tensorflow
 ```
 
 We begin by importing the keras library as well as the `Sequential` model class which forms the basic skeleton
-for our neural network. We'll only consider one type of layer, where all the neurons in a layer are connected to all
+for our neural network. We'll only consider one type of layer, where all the neurons in the layer are connected to all
 the other neurons in the previous layer
 
 
@@ -56,7 +56,7 @@ from keras.layers import Dense
 
 ### Create the data
 
-We start by creating some fake data. We'll use the csci-kit learn library in order to do this.
+Let's create some fake data. We'll use the sci-kit learn library in order to do this.
 
 
 ```python
@@ -85,19 +85,19 @@ ax.set(xlabel='X', ylabel='Y', title='Toy binary classification data set');
 ![png]({{ site.url }}/img/keras_basic_intro/output_8_0.png)
 
 
-Our data has a binary class (0 or 1), with two input dimensions ($$x$$ and $$y$$) and is visualised above. In order
-to correctly classify the class the neural network will need to successfully separate out the zig-zag shape that intersects
+Our data has a binary class (0 or 1), with two input dimensions $$x$$ and $$y$$ and is visualized above. In order
+to correctly classify the data the neural network will need to successfully separate out the zig-zag shape that intersects
 where the two classes meet.
 
-### Creating a neural network
+### Creating the neural network
 We'll create a very simple multi-layer perceptron with one hidden layer.
 
-This is done in keras by first defining a `Sequential` class object. Layers are then added from the initial layer
-that includes the data, so we need to specifiy the number of input dimensions using the keyword `input_dim`. We also define the acitvation of this layer to be a rectified linear unit `relu`.
+This is done in keras by first defining a `Sequential` class object. Layers are then added from the initial layer,
+which includes the data, hence we need to specify the number of input dimensions using the keyword `input_dim`. We also define the activation of this layer to be a rectified linear unit or `relu`.
 
 Finally a densely connected layer is added with one output and a `sigmoid` activation corresponding to the binary class.
 
-In order to fit this model we need to `compile` it by giving it the optimizer, loss and any additional metrics we want to consider.
+To fit this model we need to `compile` it by giving it the optimizer, loss and any additional metrics we want to consider in the training and validation.
 
 
 ```python
@@ -113,7 +113,7 @@ model.compile(optimizer='AdaDelta',
 ```
 
 ### Adding in a callback for tensorboard
-Next we define a callback for the model. This basically tells keras what format and where to write the data such that tensorboard can read it. Using the sub-folder structure as below allows us to compare between multiple models or multiple training of the same model.
+Next we define a callback for the model. This basically tells keras what format and where to write the data such that tensorboard can read it. Using the sub-folder structure as below allows us to compare between multiple models or multiple optimizations of the same model.
 
 
 ```python
@@ -122,7 +122,7 @@ tb_callback = keras.callbacks.TensorBoard(log_dir='./Graph/model_1/',
                                           write_images=False)
 ```
 
-Now perform model fitting. Note where we've added in the callback.
+Now perform the model fitting. Note where we've added in the callback.
 
 
 ```python
@@ -136,8 +136,10 @@ print('Test accuracy:', score[1])
     ('Test loss:', 0.15703605085611344)
     ('Test accuracy:', 0.93799999999999994)
 
+93% isn't bad. Running for a shorter number of epochs produces a lower accuracy, but running for a longer number of epochs may result in overfitting. It's always worth comparing how the validation and training accuracy change at the end of each epoch.
 
 ### Plotting the model prediction across the grid
+
 We can create a grid of $$(x,y)$$ values and then predict the class probability on each of these values using our fitted model. We'll then plot the original data with the underlying probabilities to see what the classification looks like and how it compares to the data
 
 
@@ -162,16 +164,16 @@ cbar = plt.colorbar(contour, ax=ax)
 ![png]({{ site.url }}/img/keras_basic_intro/output_18_0.png)
 
 
-As you can see in the graph above, the model able to fully capture the zig-zag pattern to fully separate the classes. We could potentially experiment adding more layers or additional input ( $$xy$$ for instance).
+As you can see in the graph above, the model able to fully capture the zig-zag pattern needed to fully separate the classes. We could experiment by adding more layers or additional input ( $$xy$$ for instance).
 
 ### Visualising results
-Now we visualise the results by running the following in the same terminal as this script
+Now we visualize the results by running the following in the same terminal as this script
 
 ```sh
 tensorboard --logdir $(pwd)/Graph
 ```
 
-This runs a local server where we can view the results in browser. The plot below gives an example of what can be visualised. Here we ran the same model for the same number of epochs (remember to specifiy a new subfolder for each instance in order to compare the results). Tensorboard has many more features including visualisation of the neural network. You can check out the documentation [here](https://www.tensorflow.org/get_started/summaries_and_tensorboard)
+This runs a local server where we can view the results in browser. The plot below gives an example of what can be visualized. Here we ran the same model for the same number of epochs (remember to specify a new subfolder for each instance in order to compare the results). Tensorboard has many more features including visualization of the neural network. You can check out the documentation [here](https://www.tensorflow.org/get_started/summaries_and_tensorboard)
 ![image]({{ site.url }}/img/keras_basic_intro/tensorboard_example.png)
 
 ### Conclusion
