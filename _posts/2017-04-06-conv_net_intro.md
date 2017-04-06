@@ -70,7 +70,7 @@ We'll begin by loading in the MNIST data set, which is a standard set of 28x28 g
 
 Let's get some insight into what a random filter applied to a test image does. We'll compare this to the trained filters at the end.
 
-Each filtered pixel in the image is defined by $C_i = \sum_j{I_{i+j-k} W_j}$, where $W$ is the filter (sometimes known as a kernel), $j$ is the 2D spatial index over $W$, $I$ is the input and $k$ is the coordinate of the center of $W$, specified by origin in the input parameters.
+Each filtered pixel in the image is defined by $$C_i = \sum_j{I_{i+j-k} W_j}$$, where $$W$$ is the filter (sometimes known as a kernel), $$j$$ is the 2D spatial index over $$W$$, $$I$$ is the input and $$k$$ is the coordinate of the center of $$W$$, specified by origin in the input parameters.
 
 
 ```python
