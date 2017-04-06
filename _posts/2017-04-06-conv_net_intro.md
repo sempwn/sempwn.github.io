@@ -40,9 +40,10 @@ from keras import backend as K
 
 ## Convolutional neural networks : A very brief introduction
 To quote wikipedia:
+
 > Convolutional neural networks are biologically inspired variants of multilayer perceptrons, designed to emulate the behaviour of a visual cortex. These models mitigate the challenges posed by the MLP architecture by exploiting the strong spatially local correlation present in natural images.
 
-One principle in machine learning is to create a feature map for data and then use your favourite classifier on those features. For image data this might be presence of straight lines, curved lines, placement of holes etc. This strategy can be very problem dependent. Instead of having to feature engineer for each specific problem, it would be better to automatically generate the features and combine with the classifer. CNNs are a way to achieve this.
+One principle in machine learning is to create a feature map for data and then use your favourite classifier on those features. For image data this might be presence of straight lines, curved lines, placement of holes etc. This strategy can be very problem dependent. Instead of having to feature engineer for each specific problem, it would be better to automatically generate the features and combine with the classifier. CNNs are a way to achieve this.
 
 
 ### Automatic feature engineering
@@ -53,7 +54,7 @@ For a classification task, after one or more convolutional layers a number of fu
 
 ### Pooling
 Once convolutions have been performed across the whole image, we need someway of down-sampling. The easiest and
-most common way is to perform max pooling. For a certain pool size return the maximum from the filtered image of that subset is given as the ouput. A diagram of this is shown below
+most common way is to perform max pooling. For a certain pool size return the maximum from the filtered image of that subset is given as the output. A diagram of this is shown below
 ![max pooling](https://upload.wikimedia.org/wikipedia/commons/e/e9/Max_pooling.png)
 
 ### MNIST data set
@@ -133,7 +134,7 @@ We're using [keras](keras.io) to construct and fit the convolutional neural netw
 > Keras is a high-level neural networks API, written in Python and capable of running on top of either [TensorFlow](https://www.tensorflow.org) or [Theano](http://deeplearning.net/software/theano/). It was developed with a focus on enabling fast experimentation.
 > Being able to go from idea to result with the least possible delay is key to doing good research.
 
-We can rapdily develop a convolutional neural network in order to experiment with our image classification task. The first step will be to pre-process the data into a form that can be fed into a keras model
+We can rapidly develop a convolutional neural network in order to experiment with our image classification task. The first step will be to pre-process the data into a form that can be fed into a keras model
 
 
 ```python
