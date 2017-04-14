@@ -346,8 +346,8 @@ $('#inputr0').slider({
 	formatter: function(value) {
 		return 'R0: ' + value;
 	}
-}).on('slide', function(slideEvt){
-  params.R0 = slideEvt.value;
+}).on('change', function(slideEvt){
+  params.R0 = slideEvt.value.newValue;
   plotGraph('SIRGraphDiv',simpleSIR(params,maxT));
 });
 
@@ -355,8 +355,8 @@ $('#inputgamma').slider({
 	formatter: function(value) {
 		return 'rate of recovery: ' + value + ' days';
 	}
-}).on('slide',function(slideEvt){
-  params.gamma = 1/slideEvt.value;
+}).on('change',function(slideEvt){
+  params.gamma = 1/slideEvt.value.newValue;
   plotGraph('SIRGraphDiv',simpleSIR(params,maxT));
 });
 
@@ -364,8 +364,8 @@ $('#inputr0s').slider({
 	formatter: function(value) {
 		return 'R0: ' + value;
 	}
-}).on('slide', function(slideEvt){
-  sparams.R0 = slideEvt.value;
+}).on('change', function(slideEvt){
+  sparams.R0 = slideEvt.value.newValue;
   plotStochGraph('StochSIRGraphDiv',multipleStochsticSIR(sparams,maxT,nreps));
 });
 
@@ -373,8 +373,8 @@ $('#inputgammas').slider({
 	formatter: function(value) {
 		return 'rate of recovery: ' + value + ' days';
 	}
-}).on('slide',function(slideEvt){
-  sparams.gamma = 1/slideEvt.value;
+}).on('change',function(slideEvt){
+  sparams.gamma = 1/slideEvt.value.newValue;
   plotStochGraph('StochSIRGraphDiv',multipleStochsticSIR(sparams,maxT,nreps));
 });
 
