@@ -49,16 +49,16 @@ function resetGraph(){
   };
   t = 0;
   data = [traceS, traceI];
-  Plotly.newPlot('graphDiv', data);
+  Plotly.newPlot('latticeGraphDiv', data);
 }
 
-Plotly.newPlot('graphDiv', data);
+Plotly.newPlot('latticeGraphDiv', data);
 
 function startSim(){
   pause = false;
   resetGraph();
   d3.select("svg").remove();
-  svg = d3.select("#epidemic").append("svg:svg")
+  svg = d3.select("#latticeEpidemic").append("svg:svg")
       .attr("width", w)
       .attr("height", h);
 
@@ -98,7 +98,7 @@ function startSim(){
          .style('cursor','pointer')
          .on('click',startSim);
 
-    Plotly.newPlot('graphDiv', data);
+    Plotly.newPlot('latticeGraphDiv', data);
 
 
 
@@ -157,7 +157,7 @@ setInterval(function () {
     if(!(I==0 || S ==0)){
       data[0].x.push(t); data[0].y.push(S);
       data[1].x.push(t); data[1].y.push(I);
-      Plotly.redraw('graphDiv');
+      Plotly.redraw('latticeGraphDiv');
     }
     for(i = 0; i<n; i++){
       if(nodes[i].infected){

@@ -48,14 +48,17 @@ One principle in machine learning is to create a feature map for data and then u
 
 ### Automatic feature engineering
 Filters or convolution kernels can be treated like automatic feature detectors. A number of filters can be set before hand. For each filter, a convolution with this and part of the input is done for each part of the image. Weights for each filter are shared to reduce location dependency and reduce the number of parameters. The end result is a multi-dimensional matrix of copies of the original data with each filter applied to it.
-![image](http://cs231n.github.io/assets/cnn/depthcol.jpeg)
+
+<img class="center-block img-responsive" src ="http://cs231n.github.io/assets/cnn/depthcol.jpeg" alt="complex models" />
+
 
 For a classification task, after one or more convolutional layers a number of fully connected layers can be added. The final layer has the same output as the number of classes.
 
 ### Pooling
 Once convolutions have been performed across the whole image, we need someway of down-sampling. The easiest and
 most common way is to perform max pooling. For a certain pool size return the maximum from the filtered image of that subset is given as the output. A diagram of this is shown below
-![max pooling](https://upload.wikimedia.org/wikipedia/commons/e/e9/Max_pooling.png)
+
+<img class="center-block img-responsive" src ="https://upload.wikimedia.org/wikipedia/commons/e/e9/Max_pooling.png" alt="complex models" />
 
 ### MNIST data set
 
@@ -94,12 +97,12 @@ for i in range(10):
 ```
 
 
-![png]({{ site.url }}/img/conv_intro/output_8_0.png)
+
+<img class="center-block img-responsive" src ="{{ site.url }}/img/conv_intro/output_8_0.png" alt="complex models" />
 
 
 
-![png]({{ site.url }}/img/conv_intro/output_8_1.png)
-
+<img class="center-block img-responsive" src ="{{ site.url }}/img/conv_intro/output_8_1.png" alt="complex models" />
 
 As you can see the random filters aren't capable of differentiating different parts or features of the image. We do know however that non-random filters are very good at things like edge detection. Let's compare these random filters above to a standard [edge-detection filter](https://en.wikipedia.org/wiki/Kernel_%28image_processing%29). One such filter is used below
 
@@ -124,8 +127,8 @@ plt.title('edge-detection image');
 ```
 
 
-![png]({{ site.url }}/img/conv_intro/output_10_0.png)
 
+<img class="center-block img-responsive" src ="{{ site.url }}/img/conv_intro/output_10_0.png" alt="png" />
 
 ### Keras introduction
 
@@ -301,7 +304,8 @@ plt.bar(np.arange(10),probs.reshape(10),align='center'); plt.xticks(np.arange(10
 
 
 
-![png]({{ site.url }}/img/conv_intro/output_21_1.png)
+
+<img class="center-block img-responsive" src ="{{ site.url }}/img/conv_intro/output_21_1.png" alt="png" />
 
 
 ### Wrong predictions
@@ -347,7 +351,8 @@ plt.bar(np.arange(10),probs.reshape(10),align='center'); plt.xticks(np.arange(10
 
 
 
-![png]({{ site.url }}/img/conv_intro/output_26_1.png)
+
+<img class="center-block img-responsive" src ="{{ site.url }}/img/conv_intro/output_26_1.png" alt="png" />
 
 
 ### Comparison between incorrectly labelled digits and all digits
@@ -374,7 +379,8 @@ plt.xlabel('highest probability');
 ```
 
 
-![png]({{ site.url }}/img/conv_intro/output_29_0.png)
+
+<img class="center-block img-responsive" src ="{{ site.url }}/img/conv_intro/output_29_0.png" alt="png" />
 
 
 It appears in general that when a digit is wrongly labelled, the model provides it with a lower probability than when it's correctly labelled. We would expect these two groups to become more separate as the model accuracy increases.
@@ -401,7 +407,8 @@ for i in range(nb_filters):
 ```
 
 
-![png]({{ site.url }}/img/conv_intro/output_34_0.png)
+
+<img class="center-block img-responsive" src ="{{ site.url }}/img/conv_intro/output_34_0.png" alt="png" />
 
 
 ### Visualising intermediate layers in the CNN
@@ -452,7 +459,7 @@ for i in range(nb_filters):
 ```
 
 
-![png]({{ site.url }}/img/conv_intro/output_40_0.png)
+<img class="center-block img-responsive" src ="{{ site.url }}/img/conv_intro/output_40_0.png" alt="png" />
 
 
 The filters pick out a lot of details from the image including horizontal and vertical lines as well as edges and potentially the terminal points of lines. We've only created one convolutional layer in our model. The real power comes when these convolutional layers are stacked together, creating a mechanism by which more general filters can be learnt.
