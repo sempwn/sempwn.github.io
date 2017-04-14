@@ -82,7 +82,8 @@ ax.set(xlabel='X', ylabel='Y', title='Toy binary classification data set');
 ```
 
 
-![png]({{ site.url }}/img/keras_basic_intro/output_8_0.png)
+
+<img class="center-block img-responsive" src ="{{ site.url }}/img/keras_basic_intro/output_8_0.png" alt="image" />
 
 
 Our data has a binary class (0 or 1), with two input dimensions $$x$$ and $$y$$ and is visualized above. In order
@@ -161,7 +162,8 @@ cbar = plt.colorbar(contour, ax=ax)
 ```
 
 
-![png]({{ site.url }}/img/keras_basic_intro/output_18_0.png)
+
+<img class="center-block img-responsive" src ="{{ site.url }}/img/keras_basic_intro/output_18_0.png" alt="image" />
 
 
 As you can see in the graph above, the model able to fully capture the zig-zag pattern needed to fully separate the classes. We could experiment by adding more layers or additional input ( $$xy$$ for instance).
@@ -174,7 +176,8 @@ tensorboard --logdir $(pwd)/Graph
 ```
 
 This runs a local server where we can view the results in browser. The plot below gives an example of what can be visualized. Here we ran the same model for the same number of epochs (remember to specify a new subfolder for each instance in order to compare the results). Tensorboard has many more features including visualization of the neural network. You can check out the documentation [here](https://www.tensorflow.org/get_started/summaries_and_tensorboard)
-![image]({{ site.url }}/img/keras_basic_intro/tensorboard_example.png)
+
+<img class="center-block img-responsive" src ="{{ site.url }}/img/keras_basic_intro/tensorboard_example.png" alt="image" />
 
 ### Conclusion
 

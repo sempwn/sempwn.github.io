@@ -134,17 +134,27 @@ infections at the start.
 The first example is an individual simulation, with individuals represented as coloured
 circles with blue denoting susceptible, red denoting infected and gray denoting recovered.
 We can interact with the simulation as it progresses by clicking on individuals to
-"vaccinate" them. All other parameters such as the rate of infectivity and the recovery
-rate can't be adjusted.
-
-<div id="title-section">
-  <div id="epidemic"></div>
+"vaccinate" them. All other parameters such as the rate of infectivity and the infectious period
+ can't be adjusted.
+<div class="row" id="lattice-epidemic-tool">
+   <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+      <div class="text-center">
+        <div class="btn-group">
+          <button id="pause" type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-pause" aria-hidden="true"></span>Pause</button>
+          <button id="reset" type="button" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>Reset</button>
+        </div>
+      </div>
+      <div class="text=center">
+        <div id="latticeEpidemic">
+        </div>
+      </div>
+   </div>
 </div>
 
 Going further into the concept of the SIR, we might want to explore what impact
 the different parameters have on the dynamics of the infection. Below we simulate
 a deterministic (ODE or in a very large population) epidemic and explore what impact
-the basic reproduction number $$R_0$$ and the recovery rate has. $$R_0$$ can be a slightly
+the basic reproduction number $$R_0$$ and the infectious period has. $$R_0$$ can be a slightly
 tricky concept to understand, it's defined as the average number of secondary cases from
 one primary case in a completely susceptible population. Notice that if it's less than one
 then there's no chance of an epidemic taking off.
@@ -159,7 +169,7 @@ then there's no chance of an epidemic taking off.
     <small class="form-text text-muted">Above one leads to epidemic.</small>
   </div>
   <div class="form-group">
-    <label for="inputgamma">Rate of recovery</label>
+    <label for="inputgamma">Infectious period</label>
     <input id="inputgamma" data-slider-id='ex1Slider' type="text" data-slider-min="0.1" data-slider-max="30" data-slider-step="1" data-slider-value="3"/>
     <small class="form-text text-muted">.</small>
   </div>
@@ -180,7 +190,7 @@ repeat the simulation multiple times to create a distribution of the epidemic cu
     <small class="form-text text-muted">Above one leads to epidemic.</small>
   </div>
   <div class="form-group">
-    <label for="inputgammas">Rate of recovery</label>
+    <label for="inputgammas">Infectious period</label>
     <input id="inputgammas" data-slider-id='ex1Slider' type="text" data-slider-min="0.1" data-slider-max="30" data-slider-step="1" data-slider-value="3"/>
     <small class="form-text text-muted">.</small>
   </div>
@@ -233,5 +243,4 @@ The original article that inspired this blog is open-access and can be found bel
 <script src="{{ site.url }}/js/d3.layout.js"></script>
 <script src="{{ site.url }}/js/d3.geom.js"></script>
 <script src="{{ site.url }}/js/d3.grid.js"></script>
-<script src="{{ site.url }}/js/lattice_epidemic.js"></script>
 <script src="{{ site.url }}/js/SIR.js"></script>
