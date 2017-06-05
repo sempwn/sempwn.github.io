@@ -186,7 +186,7 @@ function simpleWalker(){
 
     //pos = mod(pos + ((Math.random()<0.5)? 1:-1),5);
     pos = pos + ((Math.random()<0.5)? 1:-1);
-    pos = (pos<0)? 0:(pos>4)? 4:pos; 
+    pos = (pos<0)? 0:(pos>4)? 4:pos;
     var t = walker.transition().duration(200)
     .attr("cx",function(d,i){return x(circlePlacement(pos))+0.5*x(-0.8)});
     t.transition().each("end", randomWalk);
@@ -486,7 +486,13 @@ function cerealProcess(){
     .attr("y", function(d,i){return d.y})
     .attr("width", function(d,i){return d.width})
     .attr("height", function(d,i){return d.width})
-    .style("fill", function(d) { return red });
+    .style("fill", function(d,i) {
+            if (i==0){
+               return blue;
+            }else{
+               return red;
+            }
+    });
   svg.selectAll("line")
        .data(lines)
        .enter()
@@ -520,7 +526,7 @@ function cerealProcess(){
 
     markov_states
        .style("fill",function(d,i){
-         if (toys.length>i-1){
+         if (toys.length==(i)){
            return blue;
          }else{
            return red;
