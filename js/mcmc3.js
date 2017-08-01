@@ -677,6 +677,6 @@ window.onload = function () {
     probabilityVennDiagram();
     //directedGraphExample('#BN-diagram');
 
-    
+
     console.log(ProbDist.gamma(1));
 }
