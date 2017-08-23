@@ -2,5 +2,6 @@ name: Mike Irvine
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
 highlighter: rouge
+comments: true
 gems:
   - jekyll-feed
