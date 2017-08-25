@@ -212,7 +212,7 @@ $('#ex1').slider({
 		return 'Current value: ' + value;
 	}
 }).on('slide',function(oldSlideEvt,slideEvt){
-  beta = slideEvt.value*gamma/4;
+  beta = oldSlideEvt.value*gamma/4;
 });
 
 $('#ex2').slider({
@@ -220,7 +220,7 @@ $('#ex2').slider({
 		return 'Current value: ' + value;
 	}
 }).on('slide',function(oldSlideEvt,slideEvt){
-  eps = slideEvt.value;
+  eps = oldSlideEvt.value;
   var R = beta/gamma;
   beta = R*eps;
   gamma = eps;
