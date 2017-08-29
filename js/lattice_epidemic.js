@@ -221,7 +221,7 @@ $('#ex2').slider({
 	}
 }).on('slide',function(oldSlideEvt,slideEvt){
   eps = oldSlideEvt.value;
-  var R = beta/gamma;
+  var R = 4*beta/gamma;
   beta = R*eps;
   gamma = eps;
 });
