@@ -105,7 +105,7 @@ To fit this model we need to `compile` it by giving it the optimizer, loss and a
 #Create sequential  multi-layer perceptron
 #uncomment if you want to add more layers (in the interest of time we use a shallower model)
 model = Sequential()
-model.add(Dense(32, input_dim=2,activation='relu')) #X,Y input dimensions. connecting to 8 neurons with relu activation
+model.add(Dense(32, input_dim=2,activation='relu')) #X,Y input dimensions. connecting to 32 neurons with relu activation
 model.add(Dense(1, activation='sigmoid')) #binary classification so one output
 
 model.compile(optimizer='AdaDelta',

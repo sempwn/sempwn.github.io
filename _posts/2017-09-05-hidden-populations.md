@@ -67,13 +67,13 @@ Assuming there's a small, but constant probability of any individual wandering i
 the field of view at any time leads to a Poisson distribution of counts i.e. the probability
 of a randomly sampled (from the entire population) individual's count being $x$ is
 
-### $$P(X = x) = \frac{e^{-\lambda}x^\lambda}{x!}.$$
+### $$P(X = x) = \frac{e^{-\lambda}\lambda^x}{x!}.$$
 
 However, we don't observe the individuals with zero counts so our data is truncated.
 The probability of not being observed ($p_0$) is $e^{-\lambda}$.
 Therefore the probability of a random variate $X$ being observed $x$ times is
 
-### $$P(X = x | X > 0) = \frac{P(X=x)}{P(X>0)} =  \frac{x^\lambda}{x!} \frac{e^{-\lambda}}{1-e^{-\lambda}}$$
+### $$P(X = x | X > 0) = \frac{P(X=x)}{P(X>0)} =  \frac{\lambda^x}{x!} \frac{e^{-\lambda}}{1-e^{-\lambda}}$$
 
 For our data $\{x_0,\ldots,x_{n-1} \}$, the associated log-likelihood is
 
