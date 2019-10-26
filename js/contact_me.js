@@ -20,7 +20,7 @@ $(function() {
             }
             var subject = 'Message from ' + name;
             var body = message;
-            window.open('mailto:m.irvine@math.ubc.ca?subject='+subject+'&body='+body);
+            window.open('mailto:mike.irvine@bcchr.ca?subject='+subject+'&body='+body);
         },
         filter: function() {
             return $(this).is(":visible");
