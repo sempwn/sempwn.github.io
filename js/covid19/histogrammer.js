@@ -126,7 +126,13 @@ function outbreak_historgram(div,div_input,r0){
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis);
-
+    // Add title
+    svg.append("text")
+        .attr("x", (width / 2))
+        .attr("y", 0 + (margin.top)/2)
+        .attr("text-anchor", "middle")
+        .style("font-size", "16px")
+        .text("Distribution of simulated outbreaks");
     /*
     * Adding refresh method to reload new data
     */
@@ -174,11 +180,13 @@ function outbreak_historgram(div,div_input,r0){
 
     // Calling refresh repeatedly.
     setInterval(function() {
-      values = values.concat(d3.range(30).map(
-          function(x){
-              return outbreak_simulation(r0, 3);
-          }))
-      refresh_histogram(values);
+      if(values.length < 10000){
+          values = values.concat(d3.range(100).map(
+              function(x){
+                  return outbreak_simulation(r0, 3);
+              }))
+          refresh_histogram(values);
+    }
     }, dur_ms);
 
     // update r0 on change in slider
